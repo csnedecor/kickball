@@ -1,0 +1,14 @@
+<% file = File.read("roster.json") %>
+<% roster = JSON.parse(file) %>
+
+<h1><%= @team %></h1>
+
+<ul>
+  <% roster.each do |key,value| %>
+    <% if @team.downcase == key.downcase.gsub(" ", "") %>
+      <% value.each do |position, player| %>
+        <li><%= "#{player}: #{position}" %></li>
+      <% end %>
+    <% end %>
+  <% end %>
+</ul>
