@@ -1,14 +1,12 @@
+<h1>Teams</h1>
 
-
-<% file = File.read("roster.json") %>
-<% roster = JSON.parse(file) %>
-
-<% roster.each do |team, players| %>
-  <li><a href = "/teams/<%= team.downcase.gsub(" ", "") %>"><%= team %></a></li>
+<% @teams.each do |team| %>
+  <li><a href = "/teams/<%= team %>"><%= team %></a></li>
 <% end %>
+</br>
 
-<% roster.each do |team, players| %>
-  <% players.each do |position, player| %>
-  <li><a href="/position/<%= position.downcase.gsub(" ", "") %>"><%= position %></a></li>
-  <%end%>
+<h1> Positions </h1>
+
+<% @players.each do |position, player| %>
+  <li><a href="/position/<%= position %>"><%= position %></a></li>
 <%end%>
